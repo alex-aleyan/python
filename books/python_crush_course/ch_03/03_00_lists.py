@@ -131,3 +131,11 @@ model.pop()
 print(driver)
 print(make)
 print(model)
+
+first_driver_gone = driver.pop(0)
+first_make_gone   = make.pop(0)
+first_model_gone  = model.pop(0)
+
+print("First driver "       + first_driver_gone.title() + " " + \
+      "drove away driving " + first_make_gone.upper()   + " "   \
+                            + first_model_gone.upper() )
