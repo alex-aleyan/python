@@ -66,7 +66,7 @@ print("Happy " + str(age) + "th birthday")
 
 
 
-# Chapter 3
+# chapter 3
 
 bicycles = [ 'trek', \
              'cannondale', \
@@ -201,4 +201,22 @@ entry_number=len(make)
 print(str(entry_number))
 
 
+print("\n\n\n")
+print("##############################################################\n" + \
+      "#                         chapter 3                          #\n" + \
+      "##############################################################\n"   )
 
+
+list_of_magicians=[ 'alice', \
+                    'david', \
+                    'job'   ]
+
+# for <i> in <list> - just like bash!
+print("\nLooping: for <i> in <list>")
+for a_magician in list_of_magicians:
+    print("\t" + a_magician.title() + ", nice illusion!")
+    print("\t" "Show us more tricks, Mr/Ms " + a_magician.title() )
+    print("\n") # better to separate \n this way we don't have to move \
+                # it around from within a string when inserting more prints
+
+print("Thank you all for the show!")
