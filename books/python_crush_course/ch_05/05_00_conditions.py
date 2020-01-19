@@ -368,11 +368,26 @@ for car in cars:
     else:
         print( car.upper() )
 
+print("\nCheck if string TOYOTA is in the list!")
+print("Notice how we use the .lower() function")
+if 'TOYOTA'.lower() in cars:
+    print("TOYOTA is in cars list")
+
+
+print("\nTesting items of one list against items in another list:")
+japanese_cars=['toyota','honda','nissan','subaru','mitsubishi']
+for a_car in cars :
+    if a_car in japanese_cars :
+        print("The car is a japanese car!")
+    else:
+        print("The " + a_car + " is NOT a japanese car!")
+
+exit()
 
 print("")
 print("Performing numerical comparisons to check if numbers are within 0 thru 25 range")
 #numbers=[15, 25, 35, 5, 13]
-list_of_numbers=list( range(-5,35,5) )
+list_of_numbers=list( range(-3,29,1) )
 for a_number in list_of_numbers:
     if a_number < 0 or a_number > 25:
         print( str(a_number) + " is OOR" )
@@ -380,10 +395,18 @@ for a_number in list_of_numbers:
         print( str(a_number) + " is positive [0;10]" )
     elif a_number > 10 and a_number <= 20:
         print( str(a_number) + " is within (10;20]" )
+    elif a_number > 20:
+        print( str(a_number) + " is within (20;25]" )
     else:
-        print( str(a_number) + " is within (20;oo]" )
+        print("ERROR: this condition should never be hit!")
 
 
+print("\nChecking if list is empty:")
+empty_list=[]
+if empty_list :
+    print("list is not empty")
+else :
+    print("list is empty")
 
 
 
