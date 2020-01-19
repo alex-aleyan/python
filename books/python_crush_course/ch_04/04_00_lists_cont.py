@@ -207,6 +207,7 @@ print("##############################################################\n" + \
       "##############################################################\n"   )
 
 
+
 list_of_magicians=[ 'alice', \
                     'david', \
                     'job'   ]
@@ -220,3 +221,97 @@ for a_magician in list_of_magicians:
                 # it around from within a string when inserting more prints
 
 print("Thank you all for the show!")
+
+
+# for <i> in range(<start with value>,<terminate before value>)
+print("\nLooping: for <i> in range(<value>,<value>")
+for a_number in range(0,5) :
+    print("Number: " + str(a_number))
+
+
+# list(range(<start_value,<end_value>)) - create list of numbers
+print("\nUsing range(0,10):")
+list_of_numbers=list(range(0,10))
+print(list_of_numbers)
+
+
+# list(range(<start_value,<end_value>,<increment value>)) - create list of numbers:
+print("\nUsing range(0,20,2):")
+list_of_even_numbers=list(range(0,20,2))
+print(list_of_even_numbers)
+
+# Using range with math to create any set of numbers you desire:
+print("\nUsing range(1,11) with math funcs to create series of sqrd nums:")
+list_of_squared_values=[]
+for value in range(1,11):
+    list_of_squared_values.append(value**2)
+
+print(list_of_squared_values)
+
+#List COMPREHENSIONS:
+print("\nUsing list comprehensions: list=[<func1>(var) for var in <func2>() ]")
+squares=[value**2 for value in range(1,11)]
+print(squares)
+
+# Simple statistics:
+print("\nUsing simple statistics: min, max, sum")
+digits=[]
+digits=range(1,10) # create a list of 1,2,..,9
+digits.append(0)  # append 0: 1,2,..,9,0
+print(digits)
+print(min(digits))
+print(max(digits))
+print(sum(digits))
+
+
+
+# Slicing lists:
+print("\nSlicing lists:")
+
+players=['charles00',  \
+         'martin01',   \
+         'michael02',  \
+         'florence03', \
+         'eli04'       ]
+
+print("All:")
+print(players)
+print("[0,3]:")
+print(players[0:3])
+print("[1,4]:")
+print(players[1:4])
+print("[ ,4]:")
+print(players[:4])
+print("[2, ]:")
+print(players[2:])
+print("[-3,]:")
+print(players[-3:])
+
+print("\nLooping thru players[:3]")
+for player in players[:3]: 
+    print(player.title())
+print("\nLooping thru players[-3:]")
+for player in players[-3:]: 
+    print(player.title())
+
+#Copying a list:
+print("\nCopying players list: new_list = players[:]")
+new_list=players[:]
+print('new_list= ' + str(new_list) )
+
+# Aliasing a list:
+print("\nAliasing a list:")
+players_alias=players
+print('players_alias= ' + str(players_alias) )
+players.append("robert")
+print('players_alias= ' + str(players_alias) )
+
+
+# TUPLE - constant, immodifiable list:
+print("\nTUPLES:")
+dimensions_tuple=(200,50)
+print(dimensions_tuple[0])
+print(dimensions_tuple[1])
+
+
+
