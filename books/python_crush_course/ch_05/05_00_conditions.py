@@ -370,14 +370,18 @@ for car in cars:
 
 
 print("")
-print("Performing numerical comparisons:")
-#numbers=['10', '20', 35, '5', '13']
-numbers=[10, 20, 35, 5, 13]
-for a_number in numbers:
-    if a_number <= 15 :
-        print( str(a_number) + " is less than or equal to 15" )
+print("Performing numerical comparisons to check if numbers are within 0 thru 25 range")
+#numbers=[15, 25, 35, 5, 13]
+list_of_numbers=list( range(-5,35,5) )
+for a_number in list_of_numbers:
+    if a_number < 0 or a_number > 25:
+        print( str(a_number) + " is OOR" )
+    elif a_number >= 0 and a_number <= 10:
+        print( str(a_number) + " is positive [0;10]" )
+    elif a_number > 10 and a_number <= 20:
+        print( str(a_number) + " is within (10;20]" )
     else:
-        print( str(a_number) + " is greater than 15" )
+        print( str(a_number) + " is within (20;oo]" )
 
 
 
