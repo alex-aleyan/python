@@ -382,7 +382,6 @@ for a_car in cars :
     else:
         print("The " + a_car + " is NOT a japanese car!")
 
-exit()
 
 print("")
 print("Performing numerical comparisons to check if numbers are within 0 thru 25 range")
