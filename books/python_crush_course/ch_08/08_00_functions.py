@@ -580,13 +580,13 @@ print("##############################################################\n" + \
       "#                         chapter 8 FUNCTIONs                #\n" + \
       "##############################################################\n"   )
 
-def get_alpha(user_prompt):
+def get_alpha(user_prompt='gets abc..xyzABC..XYZ'):
     while True: #make sure the answer has no numbers in the name
         user_answer=raw_input(user_prompt)
         if user_answer.isalpha(): break    
     return user_answer
 
-def get_numeric(user_prompt):
+def get_numeric(user_prompt='gets 0-9'):
     #Loops if age has non-integer value until age is provided as an integer
     while True:
         try:
@@ -596,7 +596,7 @@ def get_numeric(user_prompt):
         else: break
     return user_answer
 
-def get_alphanumeric(user_prompt):
+def get_alphanumeric(user_prompt='gets 0..9abc...xyzABC...XYZ'):
     while True: # Loop until password with no white space is provide:
         user_answer=raw_input(user_prompt)
         if (' ' in user_answer) != True: break
@@ -631,8 +631,8 @@ print(new_user['password'])
 #ACCEPT THE PROVIDED DATA:
 print("\nShow provided data:")
 for key, data in new_user.items(): # show entered data
-    #if key != 'password': print( str(key.replace("_"," ")) + ": " + str(data) )
-    print( str(key.replace("_"," ")) + ": " + str(data) )
+    if key != 'password': print( str(key.replace("_"," ")) + ": " + str(data) )
+    #print( str(key.replace("_"," ")) + ": " + str(data) )
 
 user_prompt="Accept the provided data(yes/no)?"
 while True: 
