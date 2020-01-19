@@ -497,62 +497,79 @@ print("##############################################################\n" + \
       "#                         chapter 7 USER IO                  #\n" + \
       "##############################################################\n"   )
 
-new_user={}
 
-#user_prompt="Let's personalize the messages.\n"
-#user_prompt+="First, let us know you first name: "
-#user_answer=raw_input(user_prompt)
-#print( "You entered: \"" + str(user_answer).title() + "\"" )
-#new_user['first_name']=user_answer.lower()
 
-#Get first name:
+# Creating a user and storing his info temporarily 
+# in new_users dictinary. Once confirmed, the user's
+# info is moved to actual_users dictionary. Where the
+# actual_users={<name_key> : <info_dictionary>}
+#     name_key - first character of the first name + last name
+#     info_dictionary - first_name : <user's first name>
+#                       last_name  : <user's last name>
+#                       age        : <user's age>
+#                       password   : <user's password>
+
 user_prompt="Let's personalize the messages.\n"
-user_prompt+="First, let us know you first name: "
-while True: #make sure the answer has no numbers in the name
-    user_answer=raw_input(user_prompt)
-    if user_answer.isalpha(): break    
-print( "You entered: \"" + str(user_answer).title() + "\"" )
-new_user['first_name']=user_answer.lower()
+print(user_prompt)
+actual_users={}
 
-#Get last name:
-user_prompt="Now, let us know you last name: "
-while True: #make sure the answer has no numbers in the name
-    user_answer=raw_input(user_prompt)
-    if user_answer.isalpha(): break    
-print( "You entered: \"" + str(user_answer).title() + "\"" )
-new_user['last_name']=user_answer.lower()
+for i in [1, 2]:
 
-#Get age:
-#Loops if age has non-integer value until age is provided as an integer
-while True:
-    try:
-        user_prompt="Please provide your age: "
-        user_answer=int(raw_input(user_prompt))
-    except ValueError:
-        print("Sorry, it gotta be an integer")
-    else: break
-print( "You entered: \"" + str(user_answer) + "\"" )
-new_user['age']=user_answer
+    new_user={}
+    
 
-
-#Accept the provided data?
-user_prompt="Accept the provided data(yes/no)?"
-print(new_user)
-while True: #make sure the answer has no numbers in the name
-    user_answer=raw_input(user_prompt)
-    if user_answer.lower() == 'yes' or user_answer.lower == 'y':
-        print("You entered: \"" + str(user_answer).title() + "\"" )
-        print("Saving the new user")
-        for key, data in new_user.items():
-            print( str(key.replace("_"," ")) + ": " + str(data).title() )
-        break    
-    if user_answer.lower() == 'no' or user_answer.lower() == 'n':
-        print("Dismissing the provied info")
-        break    
-
-
-
-
-
-
+    
+    #GET FIRST NAME:
+    user_prompt="First, let us know you first name: "
+    while True: #make sure the answer has no numbers in the name
+        user_answer=raw_input(user_prompt)
+        if user_answer.isalpha(): break    
+    print( "You entered: \"" + str(user_answer).title() + "\"" )
+    new_user['first_name']=user_answer.lower()
+    
+    #GET LAST NAME:
+    user_prompt="Now, let us know you last name: "
+    while True: #make sure the answer has no numbers in the name
+        user_answer=raw_input(user_prompt)
+        if user_answer.isalpha(): break    
+    print( "You entered: \"" + str(user_answer).title() + "\"" )
+    new_user['last_name']=user_answer.lower()
+    
+    #GET AGE:
+    #Loops if age has non-integer value until age is provided as an integer
+    while True:
+        try:
+            user_prompt="Please provide your age: "
+            user_answer=int(raw_input(user_prompt))
+        except ValueError:
+            print("Sorry, it gotta be an integer")
+        else: break
+    print( "You entered: \"" + str(user_answer) + "\"" )
+    new_user['age']=user_answer
+    
+    #GET PASSWORD:
+    while True: # Loop until password with no white space is provide:
+        user_prompt="Provide a password:"
+        user_answer=raw_input(user_prompt)
+        if (' ' in user_answer) != True: break
+    print( "You entered: \"" + str(user_answer) + "\"" )
+    new_user['password']=user_answer
+    
+    #ACCEPT THE PROVIDED DATA:
+    for key, data in new_user.items(): # show entered data
+        print( str(key.replace("_"," ")) + ": " + str(data) )
+    user_prompt="Accept the provided data(yes/no)?"
+    while True: #make sure the answer has no numbers in the name
+        user_answer=raw_input(user_prompt)
+        if user_answer.lower() == 'yes' or user_answer.lower == 'y': #move to actual_users
+            print("Saving the new user")
+            actual_users[ str( new_user['first_name'][0] + new_user['last_name'] ) ]=new_user
+            break    
+        if user_answer.lower() == 'no' or user_answer.lower() == 'n': #dismiss info
+            print("Dismissing the provied info")
+            break    
+    
+    for key in actual_users.keys():
+        print(key + " = " + str(actual_users[key]))
+    #print(actual_users[aaleyan][first_name])
 
