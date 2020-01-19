@@ -340,4 +340,46 @@ for dimension in dimensions_tuple:
 
 
 
+print("\n\n\n")
+print("##############################################################\n" + \
+      "#                         chapter 5                          #\n" + \
+      "##############################################################\n"   )
+
+
+cars=['honda',  \
+      'toyota', \
+      'bmw',    \
+      'subaru'  ]
+
+print("")
+print("Using 'if-else' to determine if .upper() or .title() to be used:")
+print("noticed how we use .lower() in \"if car.lower() == 'bmw' \"")
+for car in cars:
+    if car.lower() == 'bmw':
+        print( car.upper() )
+    else:
+        print( car.title() )
+
+print("")
+print("Same a above but using \"if car.lower() != 'bmw' \":")
+for car in cars:
+    if car.lower() != 'bmw':
+        print( car.title() )
+    else:
+        print( car.upper() )
+
+
+print("")
+print("Performing numerical comparisons:")
+#numbers=['10', '20', 35, '5', '13']
+numbers=[10, 20, 35, 5, 13]
+for a_number in numbers:
+    if a_number <= 15 :
+        print( str(a_number) + " is less than or equal to 15" )
+    else:
+        print( str(a_number) + " is greater than 15" )
+
+
+
+
 
