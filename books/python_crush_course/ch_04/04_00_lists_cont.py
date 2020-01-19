@@ -313,5 +313,16 @@ dimensions_tuple=(200,50)
 print(dimensions_tuple[0])
 print(dimensions_tuple[1])
 
+print("\nLooping thru TUPLE")
+for dimension in dimensions_tuple:
+    print(dimension)
+
+print("\nRedefining entire TUPLE:")
+dimensions_tuple=(400,800)
+for dimension in dimensions_tuple:
+    print(dimension)
+
+
+
 
 
