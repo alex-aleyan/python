@@ -648,9 +648,20 @@ def get_newuser():
             break    
 
 
-
 actual_users[ get_username( new_user['first_name'],new_user['last_name'] ) ] = get_newuser()
 print("\nPrinting the content of actual_users dictionary:")
 for key in actual_users.keys():
     print(key + " = " + str(actual_users[key]))
+
+
+print("Using func(*args) to accept variable number of arguments as TUPLE!")
+def make_pizza(size, 
+               *toppings):
+    print("Pizza size: " + str(size) + "\"")
+    print("Print the toppings:")
+    for topping in toppings:
+        print( "- " + str(topping) )
+
+make_pizza(16,"mushrooms", "chicken")
+
 
