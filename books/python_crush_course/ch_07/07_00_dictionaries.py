@@ -499,24 +499,60 @@ print("##############################################################\n" + \
 
 new_user={}
 
+#user_prompt="Let's personalize the messages.\n"
+#user_prompt+="First, let us know you first name: "
+#user_answer=raw_input(user_prompt)
+#print( "You entered: \"" + str(user_answer).title() + "\"" )
+#new_user['first_name']=user_answer.lower()
+
+#Get first name:
 user_prompt="Let's personalize the messages.\n"
 user_prompt+="First, let us know you first name: "
-user_answer=raw_input(user_prompt)
+while True: #make sure the answer has no numbers in the name
+    user_answer=raw_input(user_prompt)
+    if user_answer.isalpha(): break    
 print( "You entered: \"" + str(user_answer).title() + "\"" )
-new_user['first_name']=user_answer
+new_user['first_name']=user_answer.lower()
 
+#Get last name:
 user_prompt="Now, let us know you last name: "
-user_answer=raw_input(user_prompt)
+while True: #make sure the answer has no numbers in the name
+    user_answer=raw_input(user_prompt)
+    if user_answer.isalpha(): break    
 print( "You entered: \"" + str(user_answer).title() + "\"" )
-new_user['last_name']=user_answer
+new_user['last_name']=user_answer.lower()
 
-user_prompt="and your age: "
-user_answer=int( raw_input(user_prompt) )
+#Get age:
+#Loops if age has non-integer value until age is provided as an integer
+while True:
+    try:
+        user_prompt="Please provide your age: "
+        user_answer=int(raw_input(user_prompt))
+    except ValueError:
+        print("Sorry, it gotta be an integer")
+    else: break
 print( "You entered: \"" + str(user_answer) + "\"" )
 new_user['age']=user_answer
 
 
+#Accept the provided data?
+user_prompt="Accept the provided data(yes/no)?"
 print(new_user)
+while True: #make sure the answer has no numbers in the name
+    user_answer=raw_input(user_prompt)
+    if user_answer.lower() == 'yes' or user_answer.lower == 'y':
+        print("You entered: \"" + str(user_answer).title() + "\"" )
+        print("Saving the new user")
+        for key, data in new_user.items():
+            print( str(key.replace("_"," ")) + ": " + str(data).title() )
+        break    
+    if user_answer.lower() == 'no' or user_answer.lower() == 'n':
+        print("Dismissing the provied info")
+        break    
+
+
+
+
 
 
 
