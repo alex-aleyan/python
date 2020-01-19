@@ -66,7 +66,12 @@ print("Happy " + str(age) + "th birthday")
 
 
 
-# chapter 3
+print("\n\n\n")
+print("##############################################################\n" + \
+      "#                         chapter 3                          #\n" + \
+      "##############################################################\n"   )
+
+
 
 bicycles = [ 'trek', \
              'cannondale', \
@@ -203,7 +208,7 @@ print(str(entry_number))
 
 print("\n\n\n")
 print("##############################################################\n" + \
-      "#                         chapter 3                          #\n" + \
+      "#                         chapter 4                          #\n" + \
       "##############################################################\n"   )
 
 
@@ -225,9 +230,9 @@ print("Thank you all for the show!")
 
 # for <i> in range(<start with value>,<terminate before value>)
 print("\nLooping: for <i> in range(<value>,<value>")
-for a_number in range(0,5) :
+for a_number in range(0,3) :
     print("Number: " + str(a_number))
-
+    print("A Magician: " + str(list_of_magicians[a_number]) )
 
 # list(range(<start_value,<end_value>)) - create list of numbers
 print("\nUsing range(0,10):")
@@ -248,10 +253,12 @@ for value in range(1,11):
 
 print(list_of_squared_values)
 
-#List COMPREHENSIONS:
+# List COMPREHENSIONS:
 print("\nUsing list comprehensions: list=[<func1>(var) for var in <func2>() ]")
 squares=[value**2 for value in range(1,11)]
 print(squares)
+
+
 
 # Simple statistics:
 print("\nUsing simple statistics: min, max, sum")
@@ -276,14 +283,19 @@ players=['charles00',  \
 
 print("All:")
 print(players)
+
 print("[0,3]:")
 print(players[0:3])
+
 print("[1,4]:")
 print(players[1:4])
+
 print("[ ,4]:")
 print(players[:4])
+
 print("[2, ]:")
 print(players[2:])
+
 print("[-3,]:")
 print(players[-3:])
 
@@ -307,9 +319,12 @@ players.append("robert")
 print('players_alias= ' + str(players_alias) )
 
 
+
 # TUPLE - constant, immodifiable list:
 print("\nTUPLES:")
-dimensions_tuple=(200,50)
+
+dimensions_tuple=(200,\
+                  50  )
 print(dimensions_tuple[0])
 print(dimensions_tuple[1])
 
@@ -318,7 +333,8 @@ for dimension in dimensions_tuple:
     print(dimension)
 
 print("\nRedefining entire TUPLE:")
-dimensions_tuple=(400,800)
+dimensions_tuple=(400,\
+                  800 )
 for dimension in dimensions_tuple:
     print(dimension)
 
