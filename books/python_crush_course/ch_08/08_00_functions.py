@@ -622,24 +622,31 @@ user_prompt="Please provide your age: "
 new_user['age']=get_numeric(user_prompt)
 print(new_user['age'])
 
+import getpass
 user_prompt="Please provide a password: "
-new_user['password']=get_alphanumeric(user_prompt)
+#new_user['password']=get_alphanumeric(user_prompt)
+new_user['password']=getpass.getpass(user_prompt)
 print(new_user['password'])
 
 #ACCEPT THE PROVIDED DATA:
+print("\nShow provided data:")
 for key, data in new_user.items(): # show entered data
+    #if key != 'password': print( str(key.replace("_"," ")) + ": " + str(data) )
     print( str(key.replace("_"," ")) + ": " + str(data) )
+
 user_prompt="Accept the provided data(yes/no)?"
 while True: 
     user_answer=raw_input(user_prompt)
     if user_answer.lower() == 'yes' or user_answer.lower == 'y': #move to actual_users
         print("Saving the new user")
         #actual_users[ str( new_user['first_name'][0] + new_user['last_name'] ) ]=new_user
-        actual_users[ get_username(new_user['first_name'], new_user['last_name']) ]=new_user
+        actual_users[ get_username( new_user['first_name'],new_user['last_name'] ) ] = new_user
         break    
     if user_answer.lower() == 'no' or user_answer.lower() == 'n': #dismiss info
         print("Dismissing the provied info")
         break    
 
+print("\nPrinting the content of actual_users dictionary:")
 for key in actual_users.keys():
     print(key + " = " + str(actual_users[key]))
+
