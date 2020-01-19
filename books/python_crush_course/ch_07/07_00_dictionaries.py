@@ -490,3 +490,33 @@ for driver, driver_info in drivers.items():
     print("last name: "    + str(driver_info['last']).title()  )
     print("car name: "     + str(driver_info['car']).upper()   )
 
+
+
+print("\n\n\n")
+print("##############################################################\n" + \
+      "#                         chapter 7 USER IO                  #\n" + \
+      "##############################################################\n"   )
+
+new_user={}
+
+user_prompt="Let's personalize the messages.\n"
+user_prompt+="First, let us know you first name: "
+user_answer=raw_input(user_prompt)
+print( "You entered: \"" + str(user_answer).title() + "\"" )
+new_user['first_name']=user_answer
+
+user_prompt="Now, let us know you last name: "
+user_answer=raw_input(user_prompt)
+print( "You entered: \"" + str(user_answer).title() + "\"" )
+new_user['last_name']=user_answer
+
+user_prompt="and your age: "
+user_answer=int( raw_input(user_prompt) )
+print( "You entered: \"" + str(user_answer) + "\"" )
+new_user['age']=user_answer
+
+
+print(new_user)
+
+
+
