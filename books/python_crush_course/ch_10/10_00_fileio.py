@@ -596,7 +596,16 @@ print("##############################################################\n" + \
       "##############################################################\n"   )
 
 garage=MyClasses.CarGarage('./io_data_files/my_garage.txt')
-garage.addToGarage(new_electric_car)
 garage.showGarage()
+garage.emptyGarage()
+garage.addToGarage(new_electric_car)
+garage.addToGarage(new_car)
+
+garage.showGarage()
+
+garage.showLineByLineGarage()
+
+
+
 
 

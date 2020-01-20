@@ -159,16 +159,38 @@ class CarGarage():
         print("EMPTY INIT OF CarGarage() CLASS")
         self.filename=garageName
 
-    def addToGarage(self, car):
+    def emptyGarage(self):
         with open(self.filename, 'w') as my_file_object:
+            my_file_object.write("")
+
+    def addToGarage(self, car):
+        with open(self.filename, 'a') as my_file_object:
             for attr, value in car.__dict__.iteritems():
                 print attr, value
                 my_file_object.write(str(attr) + " " + str(value) + "\n" )
             my_file_object.write("\n" )
 
-
     def showGarage(self):
         print("\nShowing garage content:")
+        try:
+            with open(self.filename, 'r') as my_file_object:
+                contents=my_file_object.read()
+                print(contents)
+        except IOError:
+            user_prompt=("\nERROR: Failed to open file; file d.n. exist. Hit ENTER to continue\n")
+            raw_input(user_prompt)
+
+    def showLineByLineGarage(self):
+        print("\nShowing garage content Line By Line:")
         with open(self.filename, 'r') as my_file_object:
-            contents=my_file_object.read()
-            print(contents)
+            #for line in my_file_object:
+            #    if line.isspace() : print("FOUND WHITE SPACE")
+            #    print("line: " + str(line))
+
+            lines_list=my_file_object.readlines()
+            #print(lines_list[:5])
+            for line in lines_list:
+                print(line)
+
+
+
