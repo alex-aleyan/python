@@ -90,26 +90,34 @@ class car_class(base_class):
     def getGasLevel(self):
         return self.gaslevel
 
+class car_battery():
+    def __init__(self, battery_size=70, charge_percent=20):
+        self.battery_size=battery_size
+        self.charge_percent=charge_percent
+    def setChargeLevel(self, charge_percent): # modify to check that a INTEGER is passed
+        self.charge_percent=charge_percent
+    def getChargeLevel(self):
+        return self.charge_percent
+    def setBatterySize(self, battery_size): # modify to check that a INTEGER is passed
+        self.battery_size=battery_size
+    def getBatterySize(self):
+        return self.battery_size
 
 class electric_car_class(car_class):
 
     def __init__(self, make, model, year, vin, odometer, battery_size, charge_percent):
 
+        # INHERITANCE:
         #super(electric_car_class, self).__init__(make,model,year,vin,odometer)
         car_class.__init__(self, make,model,year,vin,odometer)
 
-        self.battery_size=battery_size
-        self.charge_percent=charge_percent
-
-    def setChargeLevel(self, charge_percent): # modify to check that a INTEGER is passed
-        self.charge_percent=charge_percent
-    def getChargeLevel(self):
-        return self.charge_percent
+        # AGGREGATION:
+        self.battery=car_battery()
 
     def setGasLevel(self, gaslevel): # modify to check that a INTEGER is passed
-        print("This car is electric; try setChargeLevel() ")
+        print("This car is electric; try <self>.battery.setChargeLevel() ")
     def getGasLevel(self):
-        print("This car is electric; try getChargeLevel() ")
+        print("This car is electric; try <self>.battery.getChargeLevel() ")
 
 
 

@@ -563,6 +563,7 @@ print('Rolling up odometer to 15 miles:')
 new_car.setOdometer(15)
 print("Odometer: " + str(new_car.getOdometer()) )
 
+print("\n##INHERITANE:##")
 print("\nCreating a new_electric_car object (tesla model s)!")
 new_electric_car=userClass.electric_car_class(make='tesla', 
                                               model='model s', 
@@ -578,9 +579,11 @@ new_electric_car.getAttributes()
 print("\nUsing object's getGasLevel() method:")
 new_electric_car.getGasLevel()
 
+
+print("\n##AGGREGATION:##")
 print("\nUsing object's getChargeLevel() method:")
-print( str( new_electric_car.getChargeLevel() ) )
-new_electric_car.setChargeLevel(50)
+print( str( new_electric_car.battery.getChargeLevel() ) )
+new_electric_car.battery.setChargeLevel(50)
 print("\nUsing object's getChargeLevel() method:")
-print( str( new_electric_car.getChargeLevel() ) )
+print( str( new_electric_car.battery.getChargeLevel() ) )
 
