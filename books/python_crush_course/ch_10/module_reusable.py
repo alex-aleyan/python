@@ -10,10 +10,13 @@ import pickle
 
 new_user={}
 
+
+
 class BaseClass():
     def getAttributes(self):
         for attr, value in self.__dict__.iteritems():
             print attr, value
+
 
 
 def get_alpha(user_prompt='gets abc..xyzABC..XYZ'):
@@ -38,9 +41,10 @@ def get_alphanumeric(user_prompt='gets 0..9abc...xyzABC...XYZ'):
         if (' ' in user_answer) != True: break
     return user_answer
 
+
+
 def get_username(first_name, last_name):
     return str( first_name[0] + last_name )
-
 
 def get_newuser():
     user_prompt="Provide your first name: "
@@ -79,12 +83,11 @@ def get_newuser():
             break    
 
 
+
 def make_pizza(size, 
                *toppings):
     print("Pizza size: " + str(size) + "\"")
     print("Print the toppings:")
     for topping in toppings:
         print( "- " + str(topping) )
-
-
 
