@@ -5,8 +5,8 @@ print("##############################################################\n" + \
 
 import module_funcs as funcs
 import getpass
-
-
+import json
+import pickle
 
 class BaseClass():
 
@@ -124,7 +124,8 @@ class CarBattery():
 
 
 
-class ElectricCarClass(CarClass): #INHERITS CarClass!
+#class ElectricCarClass(CarClass): #INHERITS CarClass!
+class ElectricCarClass(CarBattery, CarClass): #INHERITS CarClass!
 
     def __init__( self, 
                   make, 
@@ -145,8 +146,12 @@ class ElectricCarClass(CarClass): #INHERITS CarClass!
                            gaslevel='n/a',
                            odometer=odometer)
 
+        CarBattery.__init__( self, 
+                           battery_size=battery_size,
+                           charge_percent=charge_percent)
+
         ###EXAMPLE OF AGGREGATION:###
-        self.battery=CarBattery()
+        #self.battery=CarBattery()
 
     def setGasLevel(self, gaslevel): # modify to check that a INTEGER is passed
         print("This car is electric; try <self>.battery.setChargeLevel() ")
@@ -157,40 +162,62 @@ class ElectricCarClass(CarClass): #INHERITS CarClass!
 class CarGarage():
     def __init__(self, garageName):
         print("EMPTY INIT OF CarGarage() CLASS")
-        self.filename=garageName
+        self.filename=garageName+".txt"
+        self.filenamepkl=garageName+".pkl"
+        self.car_list=[]
 
     def emptyGarage(self):
-        with open(self.filename, 'w') as my_file_object:
-            my_file_object.write("")
+        del self.car_list[:]
+
+#        with open(self.filename, 'w') as my_file_object:
+#            my_file_object.write("")
+#        with open(self.filenamepkl, 'w') as my_file_object:
+#            pickle.dump("", my_file_object, pickle.HIGHEST_PROTOCOL)
 
     def addToGarage(self, car):
-        with open(self.filename, 'a') as my_file_object:
-            for attr, value in car.__dict__.iteritems():
-                print attr, value
-                my_file_object.write(str(attr) + " " + str(value) + "\n" )
-            my_file_object.write("\n" )
+        self.car_list.append(car)
+ 
+#        with open(self.filename, 'a') as my_file_object:
+#            for attr, value in car.__dict__.iteritems():
+#                print attr, value
+#                my_file_object.write(str(attr) + " " + str(value) + "\n" )
+#            my_file_object.write("\n" )
+
+    def exportToPickleFile(self):
+        #Save the new car to pickle file
+        with open(self.filenamepkl, 'w') as pkl_file_obj:
+            pickle.dump(self.car_list, pkl_file_obj)#, pickle.HIGHEST_PROTOCOL)
+
+    def importFromPickleFile(self):
+        with open(self.filenamepkl, 'r') as pkl_file_obj:
+            self.car_list=pickle.load(pkl_file_obj)
 
     def showGarage(self):
         print("\nShowing garage content:")
-        try:
-            with open(self.filename, 'r') as my_file_object:
-                contents=my_file_object.read()
-                print(contents)
-        except IOError:
-            user_prompt=("\nERROR: Failed to open file; file d.n. exist. Hit ENTER to continue\n")
-            raw_input(user_prompt)
+        for car in self.car_list:
+            print("\nNext car:")
+            car.getAttributes()
+#        try:
+#            with open(self.filename, 'r') as my_file_object:
+#                contents=my_file_object.read()
+#                print(contents)
+#        except IOError:
+#            user_prompt=("\nERROR: File "   + 
+#                         str(self.filename) + 
+#                         " not found. Hit ENTER to continue\n")
+#            raw_input(user_prompt)
+                
 
     def showLineByLineGarage(self):
         print("\nShowing garage content Line By Line:")
-        with open(self.filename, 'r') as my_file_object:
-            #for line in my_file_object:
-            #    if line.isspace() : print("FOUND WHITE SPACE")
-            #    print("line: " + str(line))
-
-            lines_list=my_file_object.readlines()
-            #print(lines_list[:5])
-            for line in lines_list:
-                print(line)
-
+#        with open(self.filename, 'r') as my_file_object:
+#            #for line in my_file_object:
+#            #    if line.isspace() : print("FOUND WHITE SPACE")
+#            #    print("line: " + str(line))
+#
+#            lines_list=my_file_object.readlines()
+#            #print(lines_list[:5])
+#            for line in lines_list:
+#                print(line)
 
 

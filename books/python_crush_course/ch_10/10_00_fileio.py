@@ -342,7 +342,7 @@ for dimension in dimensions_tuple:
 
 print("\n\n\n")
 print("##############################################################\n" + \
-      "#                         chapter 5                          #\n" + \
+      "#                         chapter 5: LISTS                   #\n" + \
       "##############################################################\n"   )
 
 
@@ -582,10 +582,14 @@ new_electric_car.getGasLevel()
 
 print("\n##AGGREGATION:##")
 print("\nUsing object's getChargeLevel() method:")
-print( str( new_electric_car.battery.getChargeLevel() ) )
-new_electric_car.battery.setChargeLevel(50)
+#print( str( new_electric_car.battery.getChargeLevel() ) )
+#new_electric_car.battery.setChargeLevel(50)
+#print("\nUsing object's getChargeLevel() method:")
+#print( str( new_electric_car.battery.getChargeLevel() ) )
+print( str( new_electric_car.getChargeLevel() ) )
+new_electric_car.setChargeLevel(50)
 print("\nUsing object's getChargeLevel() method:")
-print( str( new_electric_car.battery.getChargeLevel() ) )
+print( str( new_electric_car.getChargeLevel() ) )
 
 
 
@@ -595,15 +599,20 @@ print("##############################################################\n" + \
       "#                         chapter 10 FILE IO                 #\n" + \
       "##############################################################\n"   )
 
-garage=MyClasses.CarGarage('./io_data_files/my_garage.txt')
-garage.showGarage()
+garage=MyClasses.CarGarage('./io_data_files/my_garage')
 garage.emptyGarage()
+#garage.showGarage()
 garage.addToGarage(new_electric_car)
 garage.addToGarage(new_car)
-
 garage.showGarage()
 
-garage.showLineByLineGarage()
+print("Export, Empty, Import:")
+garage.exportToPickleFile()
+garage.emptyGarage()
+garage.importFromPickleFile()
+garage.showGarage()
+
+#garage.saveGarageJSON()
 
 
 
