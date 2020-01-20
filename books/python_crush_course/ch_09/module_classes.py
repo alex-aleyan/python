@@ -6,12 +6,12 @@ print("##############################################################\n" + \
 import module_funcs as funcs
 import getpass
 
-class base_class():
+class BaseClass():
     def getAttributes(self):
         for attr, value in self.__dict__.iteritems():
             print attr, value
 
-class user_class(base_class):
+class UserClass(BaseClass):
 
     def __init__(self, first_name='', last_name='', age='', password=''):
         while True: 
@@ -54,7 +54,7 @@ class user_class(base_class):
                 print("Dismissing the provied info")
 
 
-class car_class(base_class):
+class CarClass(BaseClass):
 
     def __init__(self, make, model, year, gaslevel=0, vin='XXXXXXXXXXXXXXXXX', odometer=0):
         self.make=make.lower()
@@ -103,13 +103,13 @@ class car_battery():
     def getBatterySize(self):
         return self.battery_size
 
-class electric_car_class(car_class):
+class ElectricCarClass(CarClass):
 
     def __init__(self, make, model, year, vin, odometer, battery_size, charge_percent):
 
         # INHERITANCE:
-        #super(electric_car_class, self).__init__(make,model,year,vin,odometer)
-        car_class.__init__(self, make,model,year,vin,odometer)
+        #super(ElectricCarClass, self).__init__(make,model,year,vin,odometer)
+        CarClass.__init__(self, make,model,year,vin,odometer)
 
         # AGGREGATION:
         self.battery=car_battery()

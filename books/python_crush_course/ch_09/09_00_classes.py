@@ -531,7 +531,7 @@ print("##############################################################\n" + \
 
 import module_classes as userClass
 
-new_user=userClass.user_class( first_name='alex'  ,
+new_user=userClass.UserClass( first_name='alex'  ,
                                last_name='aleyan' ,
                                age=30             ,
                                password='Test123' )
@@ -539,13 +539,13 @@ new_user=userClass.user_class( first_name='alex'  ,
 print("\nUsing object's getAttributes() method, print all attributes/data")
 new_user.getAttributes()
 
-new_user=userClass.user_class()
+new_user=userClass.UserClass()
 
 print("\nUsing object's getAttributes() method, print all attributes/data")
 new_user.getAttributes()
 
 print("\nCreating a new_car object (180sx)!")
-new_car=userClass.car_class(make='nissan', model='180sx', year=1995, odometer=10)
+new_car=userClass.CarClass(make='nissan', model='180sx', year=1995, odometer=10)
 
 print("\nUsing object's getAttributes() method, print all attributes/data")
 new_car.getAttributes()
@@ -565,7 +565,7 @@ print("Odometer: " + str(new_car.getOdometer()) )
 
 print("\n##INHERITANE:##")
 print("\nCreating a new_electric_car object (tesla model s)!")
-new_electric_car=userClass.electric_car_class(make='tesla', 
+new_electric_car=userClass.ElectricCarClass(make='tesla', 
                                               model='model s', 
                                               year=2015, 
                                               vin='XXX',
