@@ -13,7 +13,6 @@ class user_class():
             if first_name == '':
                 user_prompt="Provide your first name: "
                 self.first_name=funcs.get_alpha(user_prompt).lower()
-                print(self.first_name)
             else:
                 self.first_name=first_name
          
@@ -21,14 +20,12 @@ class user_class():
             if last_name == '':
                 user_prompt="Provide your last name: "
                 self.last_name=funcs.get_alpha(user_prompt).lower()
-                print(self.last_name)
             else:
                 self.last_name=last_name
             
             if age == '':
                 user_prompt="Please provide your age: "
                 self.age=funcs.get_numeric(user_prompt)
-                print(self.age)
             else:
                 self.age=age
             
@@ -36,11 +33,12 @@ class user_class():
                 user_prompt="Please provide a password: "
                 #new_user['password']=get_alphanumeric(user_prompt)
                 self.password=getpass.getpass(user_prompt)
-                print(self.password)
             else:
                 self.password=password
             
-            
+            print("\nThis is the data provided by the user:")
+            self.getAttributes();
+
             user_prompt="Accept the provided data(yes/no)?"
 
             user_answer=raw_input(user_prompt)

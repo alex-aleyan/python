@@ -538,6 +538,6 @@ import module_classes as userClass
 
 new_user=userClass.user_class()
 
-print("Using object's getAttributes() method, print all attributes/data")
+print("\nUsing object's getAttributes() method, print all attributes/data")
 new_user.getAttributes()
 
