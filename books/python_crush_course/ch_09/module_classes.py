@@ -56,12 +56,13 @@ class user_class(base_class):
 
 class car_class(base_class):
 
-    def __init__(self, make, model, year, vin='XXXXXXXXXXXXXXXXX', odometer=0):
+    def __init__(self, make, model, year, gaslevel=0, vin='XXXXXXXXXXXXXXXXX', odometer=0):
         self.make=make.lower()
         self.model=model.lower()
         self.year=year
         self.vin=vin
         self.odometer=odometer
+        self.gaslevel=gaslevel
 
     def setMake(self, make): # modify to check that a STRING is passed
         self.make=make
@@ -73,6 +74,8 @@ class car_class(base_class):
         self.vin=vin
     def setOdometer(self, odometer): # modify to check that a INTEGER is passed
         if odometer > self.odometer: self.odometer=odometer
+    def setGasLevel(self, gaslevel): # modify to check that a INTEGER is passed
+        self.gaslevel=gaslevel
 
     def getMake(self):
         return self.make
@@ -84,6 +87,8 @@ class car_class(base_class):
         return self.vin
     def getOdometer(self):
         return self.odometer
+    def getGasLevel(self):
+        return self.gaslevel
 
 
 class electric_car_class(car_class):
@@ -96,7 +101,15 @@ class electric_car_class(car_class):
         self.battery_size=battery_size
         self.charge_percent=charge_percent
 
+    def setChargeLevel(self, charge_percent): # modify to check that a INTEGER is passed
+        self.charge_percent=charge_percent
+    def getChargeLevel(self):
+        return self.charge_percent
 
+    def setGasLevel(self, gaslevel): # modify to check that a INTEGER is passed
+        print("This car is electric; try setChargeLevel() ")
+    def getGasLevel(self):
+        print("This car is electric; try getChargeLevel() ")
 
 
 

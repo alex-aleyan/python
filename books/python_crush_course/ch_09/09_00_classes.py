@@ -574,3 +574,13 @@ new_electric_car=userClass.electric_car_class(make='tesla',
 
 print("\nUsing object's getAttributes() method, print all attributes/data")
 new_electric_car.getAttributes()
+
+print("\nUsing object's getGasLevel() method:")
+new_electric_car.getGasLevel()
+
+print("\nUsing object's getChargeLevel() method:")
+print( str( new_electric_car.getChargeLevel() ) )
+new_electric_car.setChargeLevel(50)
+print("\nUsing object's getChargeLevel() method:")
+print( str( new_electric_car.getChargeLevel() ) )
+
