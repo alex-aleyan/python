@@ -6,6 +6,11 @@ print("##############################################################\n" + \
 import module_funcs as funcs
 import getpass
 
+class base_class():
+    def getAttributes(self):
+        for attr, value in self.__dict__.iteritems():
+            print attr, value
+
 class user_class():
 
     def __init__(self, first_name='', last_name='', age='', password=''):
@@ -52,4 +57,45 @@ class user_class():
         for attr, value in self.__dict__.iteritems():
             print attr, value
 
+
+class car_class(base_class):
+
+    def __init__(self, make, model, year, vin='XXXXXXXXXXXXXXXXX', odometer=0):
+        self.make=make.lower()
+        self.model=model.lower()
+        self.year=year
+        self.vin=vin
+        self.odometer=odometer
+
+    #def getAttributes(self):
+    #    for attr, value in self.__dict__.iteritems():
+    #        print attr, value
+
+    def setMake(self, make): # modify to check that a STRING is passed
+        self.make=make
+    def setModel(self, model):# modify to check that a STRING is passed
+        self.model=model
+    def setYear(self, year): # modify to check that an INTEGER is passed
+        self.year=year
+    def setVin(self, vin): # modify to check that a STRING is passed
+        self.vin=vin
+    def setOdometer(self, odometer): # modify to check that a INTEGER is passed
+        if odometer > self.odometer: self.odometer=odometer
+
+    def getMake(self):
+        return self.make
+    def getModel(self):
+        return self.model
+    def getYear(self):
+        return self.year
+    def getVin(self):
+        return self.vin
+    def getOdometer(self):
+        return self.odometer
+
+#         print('\n' + str(self.make)  + 
+#               '\n' + str(self.model) + 
+#               '\n' + str(self.year)  + 
+#               '\n' + str(self.vin)   + 
+#               '\n' + str(self.odometer) )
 

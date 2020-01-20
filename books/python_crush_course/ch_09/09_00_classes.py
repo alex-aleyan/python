@@ -531,13 +531,34 @@ print("##############################################################\n" + \
 
 import module_classes as userClass
 
-#new_user=userClass.user_class( first_name='alex'  ,
-#                               last_name='aleyan' ,
-#                               age=30             ,
-#                               password='Test123' )
+new_user=userClass.user_class( first_name='alex'  ,
+                               last_name='aleyan' ,
+                               age=30             ,
+                               password='Test123' )
+
+print("\nUsing object's getAttributes() method, print all attributes/data")
+new_user.getAttributes()
 
 new_user=userClass.user_class()
 
 print("\nUsing object's getAttributes() method, print all attributes/data")
 new_user.getAttributes()
 
+print("\nCreating a new_car object (180sx)!")
+new_car=userClass.car_class(make='nissan', model='180sx', year=1995, odometer=10)
+
+print("\nUsing object's getAttributes() method, print all attributes/data")
+new_car.getAttributes()
+
+print("\nUsing sets/gets:")
+print("Year: " + str(new_car.getYear()) )
+print("Make: " + str(new_car.getMake()) )
+print("Model: " + str(new_car.getModel()) )
+print("VIN: " + str(new_car.getVin()) )
+print("Odometer: " + str(new_car.getOdometer()) )
+print('Rolling down odometer to 5 miles:')
+new_car.setOdometer(5)
+print("Odometer: " + str(new_car.getOdometer()) )
+print('Rolling up odometer to 15 miles:')
+new_car.setOdometer(15)
+print("Odometer: " + str(new_car.getOdometer()) )
