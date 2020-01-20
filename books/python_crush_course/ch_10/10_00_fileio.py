@@ -497,7 +497,7 @@ print("##############################################################\n" + \
       "#                         chapter 7 USER IO                  #\n" + \
       "##############################################################\n"   )
 
-print("See content of functions found in module_funcs.py")
+print("See content of functions found in module_reusable.py")
 
 
 
@@ -507,7 +507,7 @@ print("##############################################################\n" + \
       "#                         chapter 8 FUNCTIONs                #\n" + \
       "##############################################################\n"   )
 
-#  import module_funcs as funcs
+#  import module_reusable as funcs
 #  
 #  actual_users={}
 #  temp_user=funcs.get_newuser()

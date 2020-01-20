@@ -3,7 +3,6 @@ print("##############################################################\n" + \
       "#                         INCLUDING CLASSES MODULE           #\n" + \
       "##############################################################\n"   )
 
-import module_funcs as funcs
 import getpass
 import json
 import pickle
