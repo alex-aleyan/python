@@ -1,5 +1,5 @@
 (lp0
-(imodule_classes
+(imodule_cars
 ElectricCarClass
 p1
 (dp2
@@ -31,7 +31,7 @@ sS'gaslevel'
 p13
 S'n/a'
 p14
-sba(imodule_classes
+sba(imodule_cars
 CarClass
 p15
 (dp16

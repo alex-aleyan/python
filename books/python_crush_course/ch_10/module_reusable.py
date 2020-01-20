@@ -1,9 +1,20 @@
 print("\n\n\n")
 print("##############################################################\n" + \
-      "#                         INCLUDING FUNCS MODULE             #\n" + \
+      "#                         INCLUDING CLASSES MODULE           #\n" + \
       "##############################################################\n"   )
 
+import module_funcs as funcs
+import getpass
+import json
+import pickle
+
 new_user={}
+
+class BaseClass():
+    def getAttributes(self):
+        for attr, value in self.__dict__.iteritems():
+            print attr, value
+
 
 def get_alpha(user_prompt='gets abc..xyzABC..XYZ'):
     while True: #make sure the answer has no numbers in the name

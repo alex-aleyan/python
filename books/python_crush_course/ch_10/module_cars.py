@@ -159,6 +159,7 @@ class CarGarage():
         print("EMPTY INIT OF CarGarage() CLASS")
         self.filename=garageName+".txt"
         self.filenamepkl=garageName+".pkl"
+        self.filenamejson=garageName+".json"
         self.car_list=[]
 
     def emptyGarage(self):
@@ -170,7 +171,6 @@ class CarGarage():
     def exportToPickleFile(self): #Save the new car to pickle file
         with open(self.filenamepkl, 'w') as pkl_file_obj:
             pickle.dump(self.car_list, pkl_file_obj)
-
     def importFromPickleFile(self): #Import saved data from pickle file
         with open(self.filenamepkl, 'r') as pkl_file_obj:
             self.car_list=pickle.load(pkl_file_obj)
