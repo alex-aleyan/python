@@ -11,7 +11,7 @@ class base_class():
         for attr, value in self.__dict__.iteritems():
             print attr, value
 
-class user_class():
+class user_class(base_class):
 
     def __init__(self, first_name='', last_name='', age='', password=''):
         while True: 
@@ -52,10 +52,6 @@ class user_class():
                 break    
             if user_answer.lower() == 'no' or user_answer.lower() == 'n': #dismiss info
                 print("Dismissing the provied info")
-    
-    def getAttributes(self):
-        for attr, value in self.__dict__.iteritems():
-            print attr, value
 
 
 class car_class(base_class):
@@ -66,10 +62,6 @@ class car_class(base_class):
         self.year=year
         self.vin=vin
         self.odometer=odometer
-
-    #def getAttributes(self):
-    #    for attr, value in self.__dict__.iteritems():
-    #        print attr, value
 
     def setMake(self, make): # modify to check that a STRING is passed
         self.make=make
@@ -93,9 +85,20 @@ class car_class(base_class):
     def getOdometer(self):
         return self.odometer
 
-#         print('\n' + str(self.make)  + 
-#               '\n' + str(self.model) + 
-#               '\n' + str(self.year)  + 
-#               '\n' + str(self.vin)   + 
-#               '\n' + str(self.odometer) )
+
+class electric_car_class(car_class):
+
+    def __init__(self, make, model, year, vin, odometer, battery_size, charge_percent):
+
+        #super(electric_car_class, self).__init__(make,model,year,vin,odometer)
+        car_class.__init__(self, make,model,year,vin,odometer)
+
+        self.battery_size=battery_size
+        self.charge_percent=charge_percent
+
+
+
+
+
+
 

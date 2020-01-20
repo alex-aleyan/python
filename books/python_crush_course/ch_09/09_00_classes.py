@@ -562,3 +562,15 @@ print("Odometer: " + str(new_car.getOdometer()) )
 print('Rolling up odometer to 15 miles:')
 new_car.setOdometer(15)
 print("Odometer: " + str(new_car.getOdometer()) )
+
+print("\nCreating a new_electric_car object (tesla model s)!")
+new_electric_car=userClass.electric_car_class(make='tesla', 
+                                              model='model s', 
+                                              year=2015, 
+                                              vin='XXX',
+                                              odometer=60,
+                                              battery_size=70,
+                                              charge_percent=100)
+
+print("\nUsing object's getAttributes() method, print all attributes/data")
+new_electric_car.getAttributes()
