@@ -124,7 +124,6 @@ class CarBattery():
 
 
 
-#class ElectricCarClass(CarClass): #INHERITS CarClass!
 class ElectricCarClass(CarBattery, CarClass): #INHERITS CarClass!
 
     def __init__( self, 
@@ -137,7 +136,6 @@ class ElectricCarClass(CarBattery, CarClass): #INHERITS CarClass!
                   charge_percent):
 
         ###EXAMPLE OF INHERITANCE:###
-        #super(ElectricCarClass, self).__init__(make,model,year,vin,odometer)
         CarClass.__init__( self, 
                            make=make,
                            model=model,
@@ -149,9 +147,6 @@ class ElectricCarClass(CarBattery, CarClass): #INHERITS CarClass!
         CarBattery.__init__( self, 
                            battery_size=battery_size,
                            charge_percent=charge_percent)
-
-        ###EXAMPLE OF AGGREGATION:###
-        #self.battery=CarBattery()
 
     def setGasLevel(self, gaslevel): # modify to check that a INTEGER is passed
         print("This car is electric; try <self>.battery.setChargeLevel() ")
@@ -169,26 +164,14 @@ class CarGarage():
     def emptyGarage(self):
         del self.car_list[:]
 
-#        with open(self.filename, 'w') as my_file_object:
-#            my_file_object.write("")
-#        with open(self.filenamepkl, 'w') as my_file_object:
-#            pickle.dump("", my_file_object, pickle.HIGHEST_PROTOCOL)
-
     def addToGarage(self, car):
         self.car_list.append(car)
- 
-#        with open(self.filename, 'a') as my_file_object:
-#            for attr, value in car.__dict__.iteritems():
-#                print attr, value
-#                my_file_object.write(str(attr) + " " + str(value) + "\n" )
-#            my_file_object.write("\n" )
 
-    def exportToPickleFile(self):
-        #Save the new car to pickle file
+    def exportToPickleFile(self): #Save the new car to pickle file
         with open(self.filenamepkl, 'w') as pkl_file_obj:
-            pickle.dump(self.car_list, pkl_file_obj)#, pickle.HIGHEST_PROTOCOL)
+            pickle.dump(self.car_list, pkl_file_obj)
 
-    def importFromPickleFile(self):
+    def importFromPickleFile(self): #Import saved data from pickle file
         with open(self.filenamepkl, 'r') as pkl_file_obj:
             self.car_list=pickle.load(pkl_file_obj)
 
@@ -197,27 +180,5 @@ class CarGarage():
         for car in self.car_list:
             print("\nNext car:")
             car.getAttributes()
-#        try:
-#            with open(self.filename, 'r') as my_file_object:
-#                contents=my_file_object.read()
-#                print(contents)
-#        except IOError:
-#            user_prompt=("\nERROR: File "   + 
-#                         str(self.filename) + 
-#                         " not found. Hit ENTER to continue\n")
-#            raw_input(user_prompt)
-                
-
-    def showLineByLineGarage(self):
-        print("\nShowing garage content Line By Line:")
-#        with open(self.filename, 'r') as my_file_object:
-#            #for line in my_file_object:
-#            #    if line.isspace() : print("FOUND WHITE SPACE")
-#            #    print("line: " + str(line))
-#
-#            lines_list=my_file_object.readlines()
-#            #print(lines_list[:5])
-#            for line in lines_list:
-#                print(line)
 
 
