@@ -29,7 +29,7 @@ pyplot.axis([0, 6, 0, 30])
 
 pyplot.show()
 
-pyplot.title("(4) Plot+Scatter: Large Range!",   fontsize=24)
+pyplot.title("(4) Scatter: Large Range!",   fontsize=24)
 x_values=list(range(1,1000))
 y_values=[x**2 for x in x_values]
 pyplot.scatter(x_values, y_values, 
@@ -77,15 +77,21 @@ class RandomWalk():
             self.x_values.append(self.next_x)
             self.y_values.append(self.next_y)
 
+
+
 rw=RandomWalk()
 rw.fill_walk()
 point_numbers=list(range(rw.num_points))
-pyplot.scatter(rw.x_values, rw.y_values, 
-               c=point_numbers, cmap=pyplot.cm.Blues, edgecolor='none',  s=1)
+
+#set pixels and resolutions:
+pyplot.figure(dpi=128, figsize=(5,3) )
+#plot all points:
+pyplot.scatter(rw.x_values, rw.y_values, c=point_numbers, cmap=pyplot.cm.Blues, edgecolor='none',  s=1)
+#plot starting point as a green dot:
 pyplot.scatter(0, 0, c='green', edgecolors='none', s=100) 
+#plot last point as a red dot:
 pyplot.scatter(rw.x_values[-1], rw.y_values[-1], c='red', edgecolors='none', s=100) 
-#pyplot.plot(rw.x_values, rw.y_values,
-#               c=point_numbers, cmap=pyplot.cm.Blues, edgecolor='none',  s=1)
+
 
 #Remove the axes:
 #pyplot.axes().get_xaxis().set_visible(False)
