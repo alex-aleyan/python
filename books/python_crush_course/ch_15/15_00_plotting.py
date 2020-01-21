@@ -24,7 +24,7 @@ pyplot.xlabel("Value",           fontsize=14)
 pyplot.ylabel("Square of Value", fontsize=14)
 pyplot.tick_params(axis='both', which='major', labelsize=8)
 pyplot.plot(x_values, y_values, linewidth=1)
-pyplot.scatter(x_values, y_values, s=50)
+pyplot.scatter(x_values, y_values, edgecolor='none', c='red', s=1)
 pyplot.axis([0, 6, 0, 30])
 
 pyplot.show()
@@ -32,7 +32,8 @@ pyplot.show()
 pyplot.title("(4) Plot+Scatter: Large Range!",   fontsize=24)
 x_values=list(range(1,1000))
 y_values=[x**2 for x in x_values]
-pyplot.scatter(x_values, y_values, s=1)
+pyplot.scatter(x_values, y_values, 
+               edgecolor='none', c=y_values, cmap=pyplot.cm.Blues, s=1)
 pyplot.axis([0, 1100, 0, (1000**2)+100])
 
 pyplot.show()
