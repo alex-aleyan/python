@@ -42,7 +42,7 @@ pyplot.show()
 from random import choice
 
 class RandomWalk():
-    def __init__(self,num_points=50):
+    def __init__(self,num_points=5000):
         self.num_points=num_points
         #all walks start at (0,0) :
         self.x_values=[0]
@@ -68,14 +68,6 @@ class RandomWalk():
 
             #reject "move" that remain in place:
             if self.x_step==0 and self.y_step==0:
-                print('STUB')
-                print(self.x_step)
-                print(self.x_direction)
-                print(self.x_distance)
-                print(self.y_step)
-                print(self.y_direction)
-                print(self.y_distance)
-
                 continue
 
 
@@ -87,6 +79,9 @@ class RandomWalk():
 
 rw=RandomWalk()
 rw.fill_walk()
-pyplot.scatter(rw.x_values, rw.y_values, s=15)
-pyplot.plot(rw.x_values, rw.y_values)
+point_numbers=list(range(rw.num_points))
+pyplot.scatter(rw.x_values, rw.y_values, 
+               c=point_numbers, cmap=pyplot.cm.Blues, edgecolor='none',  s=1)
+#pyplot.plot(rw.x_values, rw.y_values,
+#               c=point_numbers, cmap=pyplot.cm.Blues, edgecolor='none',  s=1)
 pyplot.show()
