@@ -1,3 +1,10 @@
+# matplotlib.org
+# pygal.org
+
+print("##############################################################\n" + \
+      "#                         chapter 15 matplot                 #\n" + \
+      "##############################################################\n"   )
+
 import matplotlib.pyplot as pyplot
 
 x_values=[1,2,3,4,5]
@@ -98,3 +105,57 @@ pyplot.scatter(rw.x_values[-1], rw.y_values[-1], c='red', edgecolors='none', s=1
 #pyplot.axes().get_yaxis().set_visible(False)
 
 pyplot.show()
+
+
+
+print("##############################################################\n" + \
+      "#                         chapter 15 pygal                    #\n" + \
+      "##############################################################\n"   )
+
+from random import randint
+
+class Die():
+    """ A Class represeting a single die"""
+    
+    def __init__(self, num_sides=6):
+        self.num_sides=num_sides
+
+    def roll(self):
+        """Return a random value between 1 and number of sides."""
+        return randint(1, self.num_sides)
+
+#create an object of type Die()
+die=Die()
+results=[]
+# rolle the die and save the result in a list
+for roll_number in range(100):
+    result=die.roll()
+    results.append(result)
+print(results)
+print
+
+#Analyze the results:
+occurance_frequencies=[]
+for value in range(1, die.num_sides+1):
+    occurance_frequency=results.count(value)
+    occurance_frequencies.append(occurance_frequency)
+
+print(occurance_frequencies)
+
+
+
+import pygal
+
+#hist=pygal.Bar()
+hist=pygal.Histogram()
+hist.title="Results of rolling one D6 1,000 times."
+hist.x_labels=['1','2','3','4','5','6']
+hist.x_title="Result"
+hist.y_title="Frequency of Result"
+hist.add('6 sided dice',occurance_frequencies)
+#hist.render()
+hist.render_to_file('die_visual.svg')
+
+
+
+

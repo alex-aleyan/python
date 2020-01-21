@@ -1,3 +1,5 @@
 # ingore all :
 *.pyc
 *swp
+*.png
+*.svg
