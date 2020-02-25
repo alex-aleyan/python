@@ -14,13 +14,13 @@ new_user={}
 class BaseClass():
     def getAttributes(self):
         for attr, value in self.__dict__.iteritems():
-            print attr, value
+            print(attr, value)
 
 
 
 def get_alpha(user_prompt='gets abc..xyzABC..XYZ'):
     while True: #make sure the answer has no numbers in the name
-        user_answer=raw_input(user_prompt)
+        user_answer=input(user_prompt)
         if user_answer.isalpha(): break    
     return user_answer
 
@@ -28,7 +28,7 @@ def get_numeric(user_prompt='gets 0-9'):
     #Loops if age has non-integer value until age is provided as an integer
     while True:
         try:
-            user_answer=int(raw_input(user_prompt))
+            user_answer=int(input(user_prompt))
         except ValueError:
             print("Sorry, it has gotten to be an integer")
         else: break
@@ -36,7 +36,7 @@ def get_numeric(user_prompt='gets 0-9'):
 
 def get_alphanumeric(user_prompt='gets 0..9abc...xyzABC...XYZ'):
     while True: # Loop until password with no white space is provide:
-        user_answer=raw_input(user_prompt)
+        user_answer=input(user_prompt)
         if (' ' in user_answer) != True: break
     return user_answer
 
@@ -72,7 +72,7 @@ def get_newuser():
     
     user_prompt="Accept the provided data(yes/no)?"
     while True: 
-        user_answer=raw_input(user_prompt)
+        user_answer=input(user_prompt)
         if user_answer.lower() == 'yes' or user_answer.lower == 'y': 
             print("Saving the new user")
             return new_user

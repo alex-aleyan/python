@@ -11,8 +11,9 @@ import pickle
 class BaseClass():
 
     def getAttributes(self):
-        for attr, value in self.__dict__.iteritems():
-            print attr, value
+        #for attr, value in self.__dict__.iteritems():
+        for attr, value in self.__dict__.items():
+            print(attr, value)
 
 
 
@@ -48,7 +49,8 @@ class UserClass(BaseClass):
             print("\nThis is the data provided by the user:")
             self.getAttributes();
             user_prompt="Accept the provided data(yes/no)?"
-            user_answer=raw_input(user_prompt)
+            #user_answer=raw_input(user_prompt)
+            user_answer=input(user_prompt)
             if user_answer.lower() == 'yes' or user_answer.lower == 'y': 
                 print("Saving the new user")
                 break    
@@ -169,10 +171,10 @@ class CarGarage():
         self.car_list.append(car)
 
     def exportToPickleFile(self): #Save the new car to pickle file
-        with open(self.filenamepkl, 'w') as pkl_file_obj:
+        with open(self.filenamepkl, 'wb') as pkl_file_obj:
             pickle.dump(self.car_list, pkl_file_obj)
     def importFromPickleFile(self): #Import saved data from pickle file
-        with open(self.filenamepkl, 'r') as pkl_file_obj:
+        with open(self.filenamepkl, 'rb') as pkl_file_obj:
             self.car_list=pickle.load(pkl_file_obj)
 
     def showGarage(self):

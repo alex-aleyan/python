@@ -263,7 +263,7 @@ print(squares)
 # Simple statistics:
 print("\nUsing simple statistics: min, max, sum")
 digits=[]
-digits=range(1,10) # create a list of 1,2,..,9
+digits=list( range(1,10) ) # create a list of 1,2,..,9
 digits.append(0)  # append 0: 1,2,..,9,0
 print(digits)
 print(min(digits))
@@ -462,8 +462,9 @@ print("\nLooping thru dictionary's values:")
 for value in new_car.values() :
     print(str(value))
 print("Sorted values:")
-for value in sorted(new_car.values()) :
-    print(str(value))
+#FIXME:
+#for value in sorted(new_car.values()) :
+#    print(str(value))
 print("Ignore duplicates:")
 for value in set(new_car.values()) :
     print(str(value))
@@ -612,4 +613,4 @@ garage.importFromPickleFile()
 garage.showGarage()
 
 
-
+print("DONE!")
